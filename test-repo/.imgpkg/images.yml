@@ -1,0 +1,11 @@
+---
+apiVersion: imgpkg.carvel.dev/v1alpha1
+images:
+- annotations:
+    kbld.carvel.dev/id: masanara/podinfo:1.0.0
+    kbld.carvel.dev/origins: |
+      - resolved:
+          tag: 1.0.0
+          url: masanara/podinfo:1.0.0
+  image: index.docker.io/masanara/podinfo@sha256:5a188481d1cc69168215bbf4778d7687988def9b31173f1fbb657e1321c16866
+kind: ImagesLock

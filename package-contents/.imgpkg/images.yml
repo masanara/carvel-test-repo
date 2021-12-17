@@ -1,0 +1,11 @@
+---
+apiVersion: imgpkg.carvel.dev/v1alpha1
+images:
+- annotations:
+    kbld.carvel.dev/id: stefanprodan/podinfo:6.0.3
+    kbld.carvel.dev/origins: |
+      - resolved:
+          tag: 6.0.3
+          url: stefanprodan/podinfo:6.0.3
+  image: index.docker.io/stefanprodan/podinfo@sha256:4e41e8b95094a657236d3f4a923af7101ca35c43d89bcf7874f907c68e784644
+kind: ImagesLock

@@ -1,0 +1,11 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  # This will be the name of our package
+  name: podinfo.corp.com
+spec:
+  displayName: "Podinfo App"
+  longDescription: "Podinfo is a tiny web application made with Go that showcases best practices of running microservices in Kubernetes"
+  shortDescription: "Podinfo app for demoing"
+  categories:
+  - demo

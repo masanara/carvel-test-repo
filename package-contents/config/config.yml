@@ -1,0 +1,36 @@
+#@ load("@ytt:data", "data")
+#@ def labels():
+app: podinfo
+#@ end
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podinfo
+spec:
+  replicas: #@ data.values.replicas
+  selector:
+    matchLabels: #@ labels()
+  template:
+    metadata:
+      labels: #@ labels()
+    spec:
+      containers:
+      - image: stefanprodan/podinfo:6.0.3
+        name: podinfo
+        env:
+        - name: PODINFO_UI_COLOR
+          value: #@ data.values.ui_color
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels: #@ labels()
+  name: podinfo
+spec:
+  ports:
+  - protocol: TCP
+    port: #@ data.values.svc_port
+    targetPort: #@ data.values.app_port
+  selector: #@ labels()
+  type: #@ data.values.svc_type

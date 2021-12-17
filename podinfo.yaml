@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: podinfo
+  name: podinfo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: podinfo
+  template:
+    metadata:
+      labels:
+        app: podinfo
+    spec:
+      containers:
+      - image: podinfo:6.0.3
+        name: podinfo
+        env:
+        - name: PODINFO_UI_COLOR
+          value: blue
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: podinfo
+  name: podinfo
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 9898
+  selector:
+    app: podinfo
+  type: LoadBalancer

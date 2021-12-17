@@ -1,0 +1,7 @@
+#@data/values-schema
+---
+replicas: 5
+ui_color: blue
+svc_port: 80
+app_port: 9898
+svc_type: LoadBalancer
